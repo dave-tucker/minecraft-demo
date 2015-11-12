@@ -1,0 +1,52 @@
+player_limit: 300
+ip_forward: true
+permissions:
+  default:
+  - bungeecord.command.server
+  - bungeecord.command.list
+  admin:
+  - bungeecord.command.alert
+  - bungeecord.command.end
+  - bungeecord.command.ip
+  - bungeecord.command.reload
+timeout: 30000
+online_mode: true
+servers:
+  lobby:
+    address: lobby:25566
+    restricted: false
+    motd: '&1Welcome to the lobby'
+  lobbyfb:
+    address: 172.18.0.5:25566
+    restricted: false
+    motd: '&1Welcome to the lobby by IP address'
+  creative:
+    address: creative:25566
+    restricted: false
+    motd: '&1Welcome to the creative world'
+  survival:
+    address: survival:25566
+    restricted: false
+    motd: '&1Welcome to the survival world'
+listeners:
+- max_players: 300
+  fallback_server: lobby
+  host: 0.0.0.0:25565
+  bind_local_address: true
+  ping_passthrough: false
+  tab_list: GLOBAL_PING
+  default_server: lobby
+  tab_size: 60
+  force_default_server: true
+  motd: '&1Awesome Dockerized Bungee Server'
+  query_enabled: false
+  query_port: 25577
+  connection_throttle: -1
+disabled_commands:
+- disabledcommandhere
+network_compression_threshold: 256
+groups:
+  md_5:
+  - admin
+stats: 9f1f92e3-b34b-4c64-8bbc-0593f30e46b1b
+

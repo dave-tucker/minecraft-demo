@@ -1,0 +1,37 @@
+web:
+    image: davetucker/bungeecord
+    ports: 
+        - "25565:25565"
+
+lobby:
+    image: davetucker/spigot
+    container_name: lobby
+    ports:
+        - "25566"
+    volumes_from:
+        - lobby_config
+
+lobby_config:
+    build: ./lobby
+
+creative:
+    image: davetucker/spigot
+    container_name: creative
+    ports:
+        - "25566"
+    volumes_from:
+        - creative_config
+
+creative_config:
+    build: ./creative
+
+survival:
+    image: davetucker/spigot
+    container_name: survival
+    ports:
+        - "25566"
+    volumes_from:
+        - survival_config
+
+survival_config:
+    build: survival
