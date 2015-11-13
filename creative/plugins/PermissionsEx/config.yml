@@ -1,0 +1,9 @@
+version: 0
+default-backend: simple
+backends:
+    simple:
+        file: permissions.yml
+        type: file
+        compat: false
+debug: false
+server-tags: null
