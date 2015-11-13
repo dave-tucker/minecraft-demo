@@ -46,7 +46,7 @@ disabled_commands:
 - disabledcommandhere
 network_compression_threshold: 256
 groups:
-  md_5:
+  d4tux:
   - admin
 stats: 9f1f92e3-b34b-4c64-8bbc-0593f30e46b1b
 
