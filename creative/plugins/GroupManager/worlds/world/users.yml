@@ -1,6 +1,0 @@
-users:
-  d4tux:
-    group: Admin
-    subgroups: []
-    permissions:
-    - groupmanager.noofflineperms
