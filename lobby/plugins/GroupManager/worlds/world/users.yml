@@ -1,16 +1,6 @@
 users:
-  ElgarL:
-    group: Moderator
-    subgroups: []
-    permissions:
-    - groupmanager.noofflineperms
-  KHobbits:
-    group: Moderator
-    subgroups: []
-    permissions:
-    - groupmanager.noofflineperms
-  snowleo:
-    group: Builder
+  d4tux:
+    group: Admin
     subgroups: []
     permissions:
     - groupmanager.noofflineperms
