@@ -16,10 +16,6 @@ servers:
     address: lobby:25566
     restricted: false
     motd: '&1Welcome to the lobby'
-  lobbyfb:
-    address: 172.18.0.5:25566
-    restricted: false
-    motd: '&1Welcome to the lobby by IP address'
   creative:
     address: creative:25566
     restricted: false

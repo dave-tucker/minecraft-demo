@@ -1,0 +1,5 @@
+FROM java:8
+WORKDIR /etc/bungee
+VOLUME /etc/bungee
+ADD bungeecord .
+

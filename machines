@@ -1,0 +1,48 @@
+#!/bin/sh
+
+docker-machine create \
+    -d digitalocean \
+    --digitalocean-image debian-8-x64 \
+    --digitalocean-size 512mb \
+    --digitalocean-region lon1 \
+    kv
+
+docker $(docker-machine config kv) run -d \
+	-p "8500:8500" \
+	-h "consul" \
+	gliderlabs/consul -server -bootstrap
+
+docker-machine create \
+    -d digitalocean \
+    --digitalocean-image debian-8-x64 \
+    --digitalocean-size 1gb \
+    --digitalocean-region lon1 \
+    --swarm \
+    --swarm-master \
+    --swarm-discovery consul://$(docker-machine ip kv):8500 \
+    --engine-opt="cluster-store=consul://$(docker-machine ip kv):8500" \
+    --engine-opt="cluster-advertise=eth0:0" \
+    london
+
+docker-machine create \
+    -d digitalocean \
+    --digitalocean-image debian-8-x64 \
+    --digitalocean-size 1gb \
+    --digitalocean-region ams2 \
+    --swarm \
+    --swarm-discovery consul://$(docker-machine ip kv):8500 \
+    --engine-opt="cluster-store=consul://$(docker-machine ip kv):8500" \
+    --engine-opt="cluster-advertise=eth0:0" \
+    amsterdam
+
+docker-machine create \
+    -d digitalocean \
+    --digitalocean-image debian-8-x64 \
+    --digitalocean-size 1gb \
+    --digitalocean-region fra1 \
+    --swarm \
+    --swarm-discovery consul://$(docker-machine ip kv):8500 \
+    --engine-opt="cluster-store=consul://$(docker-machine ip kv):8500" \
+    --engine-opt="cluster-advertise=eth0:0" \
+    frankfurt
+

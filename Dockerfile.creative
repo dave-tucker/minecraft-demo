@@ -1,4 +1,4 @@
 FROM java:8
-WORKDIR /usr/src/myserver
-ADD creative /usr/src/myserver
-VOLUME /usr/src/myserver
+WORKDIR /etc/spigot
+ADD creative /etc/spigot
+VOLUME /etc/spigot

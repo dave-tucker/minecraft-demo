@@ -1,4 +1,30 @@
 #!/bin/sh
 
-docker build -t davetucker/bungeecord bungeecord
-docker build -t davetucker/spigot spigot
+docker build -t bungee_config_img --build-arg="constraint:node==london" -f Dockerfile.bungee .
+docker create \
+	-e "constraint:node==london" \
+	-v bungee_config:/etc/bungee \
+	--name bungee_config \
+	bungee_config_img /bin/true
+
+docker build -t lobby_config_img --build-arg="constraint:node==london" -f Dockerfile.lobby .
+docker create \
+	-e "constraint:node==london" \
+	-v lobby_config:/etc/spigot \
+	--name lobby_config \
+	lobby_config_img /bin/true
+
+docker build -t creative_config_img --build-arg="constraint:node==amsterdam" -f Dockerfile.creative .
+docker create \
+	-e "constraint:node==amsterdam" \
+	-v creative_config:/etc/spigot \
+	--name creative_config \
+	creative_config_img /bin/true
+
+docker build -t survival_config_img --build-arg="constraint:node==frankfurt" -f Dockerfile.creative .
+docker create \
+	-e "constraint:node==frankfurt" \
+	-v survival_config:/etc/spigot \
+	--name survival_config \
+	survival_config_img /bin/true
+

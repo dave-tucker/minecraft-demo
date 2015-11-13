@@ -2,6 +2,10 @@ web:
     image: davetucker/bungeecord
     ports: 
         - "25565:25565"
+    volumes:
+        - "bungee_config:/usr/src/bungee/config.yml"
+    environment:
+        - "constraint:node==london"
 
 lobby:
     image: davetucker/spigot
@@ -12,10 +16,8 @@ lobby:
         - "25566"
     volumes_from:
         - lobby_config
-
-lobby_config:
-    build: .
-    dockerfile: Dockerfile.lobby
+    environment:
+        - "constraint:node==london"
 
 creative:
     image: davetucker/spigot
@@ -24,10 +26,8 @@ creative:
         - "25566"
     volumes_from:
         - creative_config
-
-creative_config:
-    build: .
-    dockerfile: Dockerfile.creative
+    environment:
+        - "constraint:node==amsterdam"
 
 survival:
     image: davetucker/spigot
@@ -36,7 +36,5 @@ survival:
         - "25566"
     volumes_from:
         - survival_config
-
-survival_config:
-    build: .
-    dockerfile: Dockerfile.survival
+    environment:
+        - "constraint:node==frankfurt"
