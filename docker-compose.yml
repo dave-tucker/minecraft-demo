@@ -6,6 +6,8 @@ web:
 lobby:
     image: davetucker/spigot
     container_name: lobby
+    stdin_open: true
+    tty: true
     ports:
         - "25566"
     volumes_from:

@@ -6,4 +6,5 @@ backends:
         type: file
         compat: false
 debug: false
+allowOps: true
 server-tags: null
