@@ -1,4 +1,0 @@
-FROM java:8
-WORKDIR /usr/src/myserver
-ADD . /usr/src/myserver
-VOLUME /usr/src/myserver
