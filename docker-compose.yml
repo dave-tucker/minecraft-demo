@@ -12,7 +12,8 @@ lobby:
         - lobby_config
 
 lobby_config:
-    build: ./lobby
+    build: .
+    dockerfile: Dockerfile.lobby
 
 creative:
     image: davetucker/spigot
@@ -23,7 +24,8 @@ creative:
         - creative_config
 
 creative_config:
-    build: ./creative
+    build: .
+    dockerfile: Dockerfile.creative
 
 survival:
     image: davetucker/spigot
@@ -34,4 +36,5 @@ survival:
         - survival_config
 
 survival_config:
-    build: survival
+    build: .
+    dockerfile: Dockerfile.survival
