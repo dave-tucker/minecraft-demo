@@ -3,7 +3,7 @@
 docker-machine create \
     -d digitalocean \
     --digitalocean-image debian-8-x64 \
-    --digitalocean-size 512mb \
+    --digitalocean-size 1gb \
     --digitalocean-region lon1 \
     kv
 
@@ -15,7 +15,7 @@ docker $(docker-machine config kv) run -d \
 docker-machine create \
     -d digitalocean \
     --digitalocean-image debian-8-x64 \
-    --digitalocean-size 1gb \
+    --digitalocean-size 2gb \
     --digitalocean-region lon1 \
     --swarm \
     --swarm-master \
