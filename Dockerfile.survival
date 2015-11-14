@@ -1,4 +1,3 @@
 FROM java:8
-WORKDIR /etc/spigot
-ADD survival /etc/spigot
 VOLUME /etc/spigot
+ADD survival /etc/spigot

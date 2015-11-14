@@ -1,30 +1,49 @@
 #!/bin/sh
 
-docker build -t bungee_config_img --build-arg="constraint:node==london" -f Dockerfile.bungee .
+docker rm bungee_config
+docker rm lobby_config
+docker rm creative_config
+docker rm survival_config
+
+if [ "$1" = "swarm" ]; then
+	BUILD_ARGS='--build-arg="constraint:node==london"'
+else
+	BUILD_ARGS=''
+fi
+
+docker build -t bungee_config_img $BUILD_ARGS -f Dockerfile.bungee .
 docker create \
 	-e "constraint:node==london" \
-	-v bungee_config:/etc/bungee \
 	--name bungee_config \
 	bungee_config_img /bin/true
 
-docker build -t lobby_config_img --build-arg="constraint:node==london" -f Dockerfile.lobby .
+docker build -t lobby_config_img $BUILD_ARGS -f Dockerfile.lobby .
 docker create \
 	-e "constraint:node==london" \
-	-v lobby_config:/etc/spigot \
 	--name lobby_config \
 	lobby_config_img /bin/true
 
-docker build -t creative_config_img --build-arg="constraint:node==amsterdam" -f Dockerfile.creative .
+if [ "$1" = "swarm" ]; then
+	BUILD_ARGS='--build-arg="constraint:node==amsterdam"'
+else
+	BUILD_ARGS=''
+fi
+
+docker build -t creative_config_img $BUILD_ARGS -f Dockerfile.creative .
 docker create \
 	-e "constraint:node==amsterdam" \
-	-v creative_config:/etc/spigot \
 	--name creative_config \
 	creative_config_img /bin/true
 
-docker build -t survival_config_img --build-arg="constraint:node==frankfurt" -f Dockerfile.creative .
+if [ "$1" = "swarm" ]; then
+	BUILD_ARGS='--build-arg="constraint:node==frankfurt"'
+else
+	BUILD_ARGS=''
+fi
+
+docker build -t survival_config_img $BUILD_ARGS -f Dockerfile.creative .
 docker create \
 	-e "constraint:node==frankfurt" \
-	-v survival_config:/etc/spigot \
 	--name survival_config \
 	survival_config_img /bin/true
 

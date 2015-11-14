@@ -1,4 +1,3 @@
 FROM java:8
-WORKDIR /etc/spigot
-ADD creative /etc/spigot
 VOLUME /etc/spigot
+ADD creative /etc/spigot
