@@ -2,8 +2,8 @@ web:
     image: davetucker/bungeecord
     ports: 
         - "25565:25565"
-    volumes:
-        - "bungee_config:/usr/src/bungee/config.yml"
+    volumes_from:
+        - bungee_config
     environment:
         - "constraint:node==london"
 

@@ -1,3 +1,3 @@
 FROM java:8
-VOLUME /etc/spigot
-ADD bungeecord /etc/spigot
+VOLUME /etc/bungee
+ADD bungeecord /etc/bungee
