@@ -31,7 +31,7 @@ groups:
       - modifyworld.*
       - permissions.*
       - worldedit.*
-      - worldgaurd.*
+      - worldguard.*
       - BungeePortals.command.BPortals
     options:
       rank: '1'
