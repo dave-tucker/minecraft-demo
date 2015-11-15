@@ -1,0 +1,105 @@
+{
+    "subjects": {
+        "user": {
+            "AnotherPlayer": [
+                {
+                    "parents": [
+                        "group:default"
+                    ]
+                }
+            ],
+            "YourPlayerName": [
+                {
+                    "parents": [
+                        "group:Admin"
+                    ]
+                }
+            ],
+            "4caf4953-c856-4de7-8703-9f057d5c5033": [
+                {
+                    "options": {
+                        "name": "d4tux"
+                    },
+                    "parents": [
+                        "group:Admin"
+                    ]
+                }
+            ]
+        },
+        "group": {
+            "default": [
+                {
+                    "permissions": {
+                        "modifyworld.chat": 1
+                    }
+                }
+            ],
+            "Member": [
+                {
+                    "options": {
+                        "prefix": "&0(&8M&7ember&0)&7 "
+                    },
+                    "permissions": {
+                        "modifyworld": 1
+                    }
+                }
+            ],
+            "VIP": [
+                {
+                    "options": {
+                        "prefix": "&0(&eVIP&0)&7 "
+                    },
+                    "permissions": {
+                        "modifyworld.mobtarget.monster.creeper": -1,
+                        "modifyworld": 1
+                    }
+                }
+            ],
+            "Mod": [
+                {
+                    "options": {
+                        "prefix": "&0(&1Mod&0)&7 "
+                    },
+                    "permissions": {
+                        "modifyworld.mobtarget": -1,
+                        "modifyworld": 1
+                    }
+                }
+            ],
+            "Admin": [
+                {
+                    "permissions": {
+                        "modifyworld.mobtarget": -1,
+                        "BungeePortals.command.BPortals": 1,
+                        "worldedit.*": 1,
+                        "worldguard.*": 1,
+                        "modifyworld": 1,
+                        "permissions": 1
+                    },
+                    "options": {
+                        "prefix": "&0(&4Admin&0)&7 "
+                    }
+                }
+            ]
+        },
+        "default": {
+            "default": [
+                {
+                    "parents": [
+                        "group:default"
+                    ]
+                }
+            ]
+        }
+    },
+    "rank-ladders": {
+        "default": [
+            "group:default",
+            "group:Member",
+            "group:VIP",
+            "group:Mod",
+            "group:Admin"
+        ]
+    },
+    "schema-version": 4
+}
