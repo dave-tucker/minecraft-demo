@@ -11,13 +11,13 @@ else
 	BUILD_ARGS=''
 fi
 
-docker build -t bungee_config_img $BUILD_ARGS -f Dockerfile.bungee .
+docker build -t bungee_config_img $BUILD_ARGS bungeecord
 docker create \
 	-e "constraint:node==london" \
 	--name bungee_config \
 	bungee_config_img /bin/true
 
-docker build -t lobby_config_img $BUILD_ARGS -f Dockerfile.lobby .
+docker build -t lobby_config_img $BUILD_ARGS lobby
 docker create \
 	-e "constraint:node==london" \
 	--name lobby_config \
@@ -29,7 +29,7 @@ else
 	BUILD_ARGS=''
 fi
 
-docker build -t creative_config_img $BUILD_ARGS -f Dockerfile.creative .
+docker build -t creative_config_img $BUILD_ARGS creative
 docker create \
 	-e "constraint:node==amsterdam" \
 	--name creative_config \
@@ -41,7 +41,7 @@ else
 	BUILD_ARGS=''
 fi
 
-docker build -t survival_config_img $BUILD_ARGS -f Dockerfile.creative .
+docker build -t survival_config_img $BUILD_ARGS survival
 docker create \
 	-e "constraint:node==frankfurt" \
 	--name survival_config \

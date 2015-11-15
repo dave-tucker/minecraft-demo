@@ -1,3 +1,0 @@
-FROM java:8
-VOLUME /etc/spigot
-ADD creative /etc/spigot
