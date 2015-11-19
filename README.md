@@ -14,6 +14,12 @@ docker-compose --x-networking up
 
 ## Multi-host usage (using swarm):
 
+You can create some machines using Digital Ocean and Docker Machine using
+```
+./machines
+```
+This was exactly what I used for the demo at DockerCon EU
+
 ```
 ./build_containers swarm
 docker-compose --x-networking up
