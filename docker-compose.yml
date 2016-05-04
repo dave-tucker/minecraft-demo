@@ -1,40 +1,46 @@
-web:
-    image: davetucker/bungeecord
-    ports: 
-        - "25565:25565"
-    volumes_from:
-        - bungee_config
-    environment:
-        - "constraint:node==london"
+version: "2"
+services:
+    web:
+        image: davetucker/bungeecord
+        ports: 
+            - "25565:25565"
+        volumes_from:
+            - container:bungee_config
+        environment:
+            - "constraint:node==london"
+        depends_on:
+            - lobby
+            - creative
+            - survival
 
-lobby:
-    image: davetucker/spigot
-    container_name: lobby
-    stdin_open: true
-    tty: true
-    ports:
-        - "25566"
-    volumes_from:
-        - lobby_config
-    environment:
-        - "constraint:node==london"
+    lobby:
+        image: davetucker/spigot
+        container_name: lobby
+        stdin_open: true
+        tty: true
+        ports:
+            - "25566"
+        volumes_from:
+            - container:lobby_config
+        environment:
+            - "constraint:node==london"
 
-creative:
-    image: davetucker/spigot
-    container_name: creative
-    ports:
-        - "25566"
-    volumes_from:
-        - creative_config
-    environment:
-        - "constraint:node==amsterdam"
+    creative:
+        image: davetucker/spigot
+        container_name: creative
+        ports:
+            - "25566"
+        volumes_from:
+            - container:creative_config
+        environment:
+            - "constraint:node==amsterdam"
 
-survival:
-    image: davetucker/spigot
-    container_name: survival
-    ports:
-        - "25566"
-    volumes_from:
-        - survival_config
-    environment:
-        - "constraint:node==frankfurt"
+    survival:
+        image: davetucker/spigot
+        container_name: survival
+        ports:
+            - "25566"
+        volumes_from:
+            - container:survival_config
+        environment:
+            - "constraint:node==frankfurt"

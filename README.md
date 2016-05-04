@@ -9,7 +9,7 @@ Note: your machine will need at least 5GB RAM
 
 ```
 ./build_containers
-docker-compose --x-networking up
+docker-compose up
 ```
 
 ## Multi-host usage (using swarm):
@@ -22,5 +22,5 @@ This was exactly what I used for the demo at DockerCon EU
 
 ```
 ./build_containers swarm
-docker-compose --x-networking up
+docker-compose up
 ```
